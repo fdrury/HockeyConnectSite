@@ -20,10 +20,10 @@
                 <a class="nav-link" href="../">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Create</a>
+                <a class="nav-link" href="../create/">Create</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="../review/">Review<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Review<span class="sr-only">(current)</span></a>
             </li>
             </ul>
         </div>
@@ -31,12 +31,22 @@
 
         <main role="main" class="container">
         <div class="jumbotron">
-            <h1>Create a New Tryout</h1>
-            <p class="lead">Be sure to adhere strictly to the templates provided otherwise issues may occur.<br>Delete the sample values from the templates before populating.</p>
+            <h1>Review Tryout Records</h1>
+            <p class="lead">To retrieve the records for your tryout, please input the tryout ID and then select whether you require the timed or skill evaluation records.</p>
+            
+            <form action="#" id="getfileform" method="GET" enctype="multipart/form-data">
+            <div class="form-group lead">
+                Tryout ID:<br>
+                <input type="text" id="tryoutid"><br>
+            </div>
+            <button type="button" class="btn btn-lg btn-primary fa fa-download" onclick="getTimedEvals();">Timed Evaluations</button>
+            <button type="button" class="btn btn-lg btn-primary fa fa-download" onclick="getSkillEvals();">Skill Evaluations</button>
+            </form>
         </div>
         </main>
 
         <script src="http://code.jquery.com/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/getEvals.js"></script>
     </body>
 </html>

@@ -160,7 +160,6 @@ def createTryout():
                 regex = 'TRYOUT_ID'
                 returnText4 = re.sub(regex, format(newTryoutID), returnText3)
             return(returnText4)
-            #return ('File uploaded successfully. Your Tryout ID is %d' % newTryoutID)
 
 
 @app.route('/downloadTimedEvals/<path>')
