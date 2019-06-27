@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/navbar-top-fixed.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -15,10 +16,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="../">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#">Create <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -30,9 +31,22 @@
 
         <main role="main" class="container">
         <div class="jumbotron">
-            <h1>Navbar example</h1>
-            <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s viewport.</p>
-            <a class="btn btn-lg btn-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/navbar/" role="button">View navbar docs &raquo;</a>
+            <h1>Create a New Tryout</h1>
+            <p class="lead">Be sure to adhere strictly to the templates provided otherwise issues may occur.<br>Delete the sample values from the templates before populating.</p>
+            <a href="../res/newSamplePlayers.csv" download="Hockey_Connect_Players.csv" class="btn btn-lg btn-secondary fa fa-download"> Download Player List Template</a><br><br>
+            <a href="../res/newSampleCriteria.csv" download="Hockey_Connect_Criteria.csv" class="btn btn-lg btn-secondary fa fa-download"> Download Evaluation Criteria Template</a><br><br><br><br>
+            <h2>Upload Tryout Files:</h2><br>
+            <form action="http://localhost:5000/createTryout" method="POST" enctype="multipart/form-data">
+                <div class="form-group lead">
+                    Players:<br>
+                    <input type="file" name="csvfileplayers" accept=".csv"><br><br>
+                </div>
+                <div class="form-group lead">
+                    Evaluation Criteria:<br>
+                    <input type="file" name="csvfilecriteria" accept=".csv"><br><br>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Create Tryout">
+            </form>
         </div>
         </main>
 
