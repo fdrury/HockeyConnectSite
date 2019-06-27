@@ -1,0 +1,5 @@
+localhost
+PythonUser
+HockeyConnect77
+HockeyConnect
+END OF FILE (don't delete me)
