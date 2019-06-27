@@ -4,6 +4,7 @@ import pymssql
 import datetime
 import csv
 import io
+import re
 
 app = Flask(__name__)
 
@@ -149,7 +150,17 @@ def createTryout():
 
             
             conn.commit()
-            return ('File uploaded successfully. Your Tryout ID is %d' % newTryoutID)
+            
+            with open("result.html") as returnPage:
+                returnText1 = returnPage.read()
+                regex = '<!-- ERROR START[\s\S]*<!-- SUCCESS'
+                returnText2 = re.sub(regex, '', returnText1)
+                regex = 'SUCCESS -->'
+                returnText3 = re.sub(regex, '', returnText2)
+                regex = 'TRYOUT_ID'
+                returnText4 = re.sub(regex, format(newTryoutID), returnText3)
+            return(returnText4)
+            #return ('File uploaded successfully. Your Tryout ID is %d' % newTryoutID)
 
 
 @app.route('/downloadTimedEvals/<path>')
